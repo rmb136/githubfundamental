@@ -1,0 +1,286 @@
+Chapter 1: Introduction to Git and GitHub
+1) Q: What is Git and why is it used?
+   A: A distributed version control system for tracking changes.
+2) Q: How does Git differ from GitHub?
+   A: Git is the VCS; GitHub is a hosting/collaboration platform built on Git.
+3) Q: Define a repository in your own words.
+   A: A storage for project files and their history.
+4) Q: What information does a commit store?
+   A: Commit stores a snapshot of changes, message, author, timestamp.
+5) Q: Explain what a branch is.
+   A: A parallel line of development to isolate work.
+6) Q: What does cloning a repository do?
+   A: Creates a local copy of the remote repository.
+7) Q: Name two benefits of version control.
+   A: History, collaboration, backup; example: safe experimentation and rollback.
+8) Q: What is the purpose of a commit message?
+   A: To explain what changed and why; helps reviewers.
+9) Q: How would you view the commit history of a repo?
+   A: Use git log or git log --oneline to view history.
+10) Q: Give an example scenario to create a branch.
+   A: When developing a new feature, to avoid affecting main branch.
+
+Chapter 2: Setting Up Git and GitHub
+1) Q: How do you install Git on a machine? (list common methods)
+   A: Download from git-scm.com, use package managers (apt, brew, choco), or GitHub Desktop.
+2) Q: What commands set your Git username and email?
+   A: git config --global user.name "Your Name"; git config --global user.email "you@example.com"
+3) Q: Why is configuring your email important for commits?
+   A: So commits link to your identity and show on GitHub profile.
+4) Q: What is GitHub Desktop used for?
+   A: A GUI client to manage repos locally and sync with GitHub.
+5) Q: Describe one benefit of the GitHub CLI.
+   A: CLI enables scripting and faster workflows for advanced users.
+6) Q: How do you connect your local Git to GitHub?
+   A: Add a remote (HTTPS/SSH) and push; or use GitHub Desktop to connect.
+7) Q: What are the pros/cons of SSH vs HTTPS for Git remotes?
+   A: SSH is key-based and convenient; HTTPS may prompt for credentials or token.
+8) Q: How can you verify your Git installation?
+   A: Run git --version or git --help to verify installation.
+9) Q: Where are global Git configs stored?
+   A: In the global git config file (~/.gitconfig or %USERPROFILE%\.gitconfig).
+10) Q: How do you create a GitHub account?
+   A: Sign up at github.com and verify your email.
+
+Chapter 3: Your First GitHub Repository
+1) Q: Chapter 3 question 1: Explain or describe a concept from chapter 3.
+   A: See chapter content for the model answer.
+2) Q: Chapter 3 question 2: Explain or describe a concept from chapter 3.
+   A: See chapter content for the model answer.
+3) Q: Chapter 3 question 3: Explain or describe a concept from chapter 3.
+   A: See chapter content for the model answer.
+4) Q: Chapter 3 question 4: Explain or describe a concept from chapter 3.
+   A: See chapter content for the model answer.
+5) Q: Chapter 3 question 5: Explain or describe a concept from chapter 3.
+   A: See chapter content for the model answer.
+6) Q: Chapter 3 question 6: Explain or describe a concept from chapter 3.
+   A: See chapter content for the model answer.
+7) Q: Chapter 3 question 7: Explain or describe a concept from chapter 3.
+   A: See chapter content for the model answer.
+8) Q: Chapter 3 question 8: Explain or describe a concept from chapter 3.
+   A: See chapter content for the model answer.
+9) Q: Chapter 3 question 9: Explain or describe a concept from chapter 3.
+   A: See chapter content for the model answer.
+10) Q: Chapter 3 question 10: Explain or describe a concept from chapter 3.
+   A: See chapter content for the model answer.
+
+Chapter 4: The Essential Git Commands
+1) Q: Chapter 4 question 1: Explain or describe a concept from chapter 4.
+   A: See chapter content for the model answer.
+2) Q: Chapter 4 question 2: Explain or describe a concept from chapter 4.
+   A: See chapter content for the model answer.
+3) Q: Chapter 4 question 3: Explain or describe a concept from chapter 4.
+   A: See chapter content for the model answer.
+4) Q: Chapter 4 question 4: Explain or describe a concept from chapter 4.
+   A: See chapter content for the model answer.
+5) Q: Chapter 4 question 5: Explain or describe a concept from chapter 4.
+   A: See chapter content for the model answer.
+6) Q: Chapter 4 question 6: Explain or describe a concept from chapter 4.
+   A: See chapter content for the model answer.
+7) Q: Chapter 4 question 7: Explain or describe a concept from chapter 4.
+   A: See chapter content for the model answer.
+8) Q: Chapter 4 question 8: Explain or describe a concept from chapter 4.
+   A: See chapter content for the model answer.
+9) Q: Chapter 4 question 9: Explain or describe a concept from chapter 4.
+   A: See chapter content for the model answer.
+10) Q: Chapter 4 question 10: Explain or describe a concept from chapter 4.
+   A: See chapter content for the model answer.
+
+Chapter 5: Branching and Merging
+1) Q: Chapter 5 question 1: Explain or describe a concept from chapter 5.
+   A: See chapter content for the model answer.
+2) Q: Chapter 5 question 2: Explain or describe a concept from chapter 5.
+   A: See chapter content for the model answer.
+3) Q: Chapter 5 question 3: Explain or describe a concept from chapter 5.
+   A: See chapter content for the model answer.
+4) Q: Chapter 5 question 4: Explain or describe a concept from chapter 5.
+   A: See chapter content for the model answer.
+5) Q: Chapter 5 question 5: Explain or describe a concept from chapter 5.
+   A: See chapter content for the model answer.
+6) Q: Chapter 5 question 6: Explain or describe a concept from chapter 5.
+   A: See chapter content for the model answer.
+7) Q: Chapter 5 question 7: Explain or describe a concept from chapter 5.
+   A: See chapter content for the model answer.
+8) Q: Chapter 5 question 8: Explain or describe a concept from chapter 5.
+   A: See chapter content for the model answer.
+9) Q: Chapter 5 question 9: Explain or describe a concept from chapter 5.
+   A: See chapter content for the model answer.
+10) Q: Chapter 5 question 10: Explain or describe a concept from chapter 5.
+   A: See chapter content for the model answer.
+
+Chapter 6: Collaborating with Teams
+1) Q: Chapter 6 question 1: Explain or describe a concept from chapter 6.
+   A: See chapter content for the model answer.
+2) Q: Chapter 6 question 2: Explain or describe a concept from chapter 6.
+   A: See chapter content for the model answer.
+3) Q: Chapter 6 question 3: Explain or describe a concept from chapter 6.
+   A: See chapter content for the model answer.
+4) Q: Chapter 6 question 4: Explain or describe a concept from chapter 6.
+   A: See chapter content for the model answer.
+5) Q: Chapter 6 question 5: Explain or describe a concept from chapter 6.
+   A: See chapter content for the model answer.
+6) Q: Chapter 6 question 6: Explain or describe a concept from chapter 6.
+   A: See chapter content for the model answer.
+7) Q: Chapter 6 question 7: Explain or describe a concept from chapter 6.
+   A: See chapter content for the model answer.
+8) Q: Chapter 6 question 8: Explain or describe a concept from chapter 6.
+   A: See chapter content for the model answer.
+9) Q: Chapter 6 question 9: Explain or describe a concept from chapter 6.
+   A: See chapter content for the model answer.
+10) Q: Chapter 6 question 10: Explain or describe a concept from chapter 6.
+   A: See chapter content for the model answer.
+
+Chapter 7: Managing Issues and Projects
+1) Q: Chapter 7 question 1: Explain or describe a concept from chapter 7.
+   A: See chapter content for the model answer.
+2) Q: Chapter 7 question 2: Explain or describe a concept from chapter 7.
+   A: See chapter content for the model answer.
+3) Q: Chapter 7 question 3: Explain or describe a concept from chapter 7.
+   A: See chapter content for the model answer.
+4) Q: Chapter 7 question 4: Explain or describe a concept from chapter 7.
+   A: See chapter content for the model answer.
+5) Q: Chapter 7 question 5: Explain or describe a concept from chapter 7.
+   A: See chapter content for the model answer.
+6) Q: Chapter 7 question 6: Explain or describe a concept from chapter 7.
+   A: See chapter content for the model answer.
+7) Q: Chapter 7 question 7: Explain or describe a concept from chapter 7.
+   A: See chapter content for the model answer.
+8) Q: Chapter 7 question 8: Explain or describe a concept from chapter 7.
+   A: See chapter content for the model answer.
+9) Q: Chapter 7 question 9: Explain or describe a concept from chapter 7.
+   A: See chapter content for the model answer.
+10) Q: Chapter 7 question 10: Explain or describe a concept from chapter 7.
+   A: See chapter content for the model answer.
+
+Chapter 8: GitHub Best Practices
+1) Q: Chapter 8 question 1: Explain or describe a concept from chapter 8.
+   A: See chapter content for the model answer.
+2) Q: Chapter 8 question 2: Explain or describe a concept from chapter 8.
+   A: See chapter content for the model answer.
+3) Q: Chapter 8 question 3: Explain or describe a concept from chapter 8.
+   A: See chapter content for the model answer.
+4) Q: Chapter 8 question 4: Explain or describe a concept from chapter 8.
+   A: See chapter content for the model answer.
+5) Q: Chapter 8 question 5: Explain or describe a concept from chapter 8.
+   A: See chapter content for the model answer.
+6) Q: Chapter 8 question 6: Explain or describe a concept from chapter 8.
+   A: See chapter content for the model answer.
+7) Q: Chapter 8 question 7: Explain or describe a concept from chapter 8.
+   A: See chapter content for the model answer.
+8) Q: Chapter 8 question 8: Explain or describe a concept from chapter 8.
+   A: See chapter content for the model answer.
+9) Q: Chapter 8 question 9: Explain or describe a concept from chapter 8.
+   A: See chapter content for the model answer.
+10) Q: Chapter 8 question 10: Explain or describe a concept from chapter 8.
+   A: See chapter content for the model answer.
+
+Chapter 9: GitHub Actions & Automation
+1) Q: Chapter 9 question 1: Explain or describe a concept from chapter 9.
+   A: See chapter content for the model answer.
+2) Q: Chapter 9 question 2: Explain or describe a concept from chapter 9.
+   A: See chapter content for the model answer.
+3) Q: Chapter 9 question 3: Explain or describe a concept from chapter 9.
+   A: See chapter content for the model answer.
+4) Q: Chapter 9 question 4: Explain or describe a concept from chapter 9.
+   A: See chapter content for the model answer.
+5) Q: Chapter 9 question 5: Explain or describe a concept from chapter 9.
+   A: See chapter content for the model answer.
+6) Q: Chapter 9 question 6: Explain or describe a concept from chapter 9.
+   A: See chapter content for the model answer.
+7) Q: Chapter 9 question 7: Explain or describe a concept from chapter 9.
+   A: See chapter content for the model answer.
+8) Q: Chapter 9 question 8: Explain or describe a concept from chapter 9.
+   A: See chapter content for the model answer.
+9) Q: Chapter 9 question 9: Explain or describe a concept from chapter 9.
+   A: See chapter content for the model answer.
+10) Q: Chapter 9 question 10: Explain or describe a concept from chapter 9.
+   A: See chapter content for the model answer.
+
+Chapter 10: GitHub Pages and Hosting
+1) Q: Chapter 10 question 1: Explain or describe a concept from chapter 10.
+   A: See chapter content for the model answer.
+2) Q: Chapter 10 question 2: Explain or describe a concept from chapter 10.
+   A: See chapter content for the model answer.
+3) Q: Chapter 10 question 3: Explain or describe a concept from chapter 10.
+   A: See chapter content for the model answer.
+4) Q: Chapter 10 question 4: Explain or describe a concept from chapter 10.
+   A: See chapter content for the model answer.
+5) Q: Chapter 10 question 5: Explain or describe a concept from chapter 10.
+   A: See chapter content for the model answer.
+6) Q: Chapter 10 question 6: Explain or describe a concept from chapter 10.
+   A: See chapter content for the model answer.
+7) Q: Chapter 10 question 7: Explain or describe a concept from chapter 10.
+   A: See chapter content for the model answer.
+8) Q: Chapter 10 question 8: Explain or describe a concept from chapter 10.
+   A: See chapter content for the model answer.
+9) Q: Chapter 10 question 9: Explain or describe a concept from chapter 10.
+   A: See chapter content for the model answer.
+10) Q: Chapter 10 question 10: Explain or describe a concept from chapter 10.
+   A: See chapter content for the model answer.
+
+Chapter 11: Advanced GitHub Features
+1) Q: Chapter 11 question 1: Explain or describe a concept from chapter 11.
+   A: See chapter content for the model answer.
+2) Q: Chapter 11 question 2: Explain or describe a concept from chapter 11.
+   A: See chapter content for the model answer.
+3) Q: Chapter 11 question 3: Explain or describe a concept from chapter 11.
+   A: See chapter content for the model answer.
+4) Q: Chapter 11 question 4: Explain or describe a concept from chapter 11.
+   A: See chapter content for the model answer.
+5) Q: Chapter 11 question 5: Explain or describe a concept from chapter 11.
+   A: See chapter content for the model answer.
+6) Q: Chapter 11 question 6: Explain or describe a concept from chapter 11.
+   A: See chapter content for the model answer.
+7) Q: Chapter 11 question 7: Explain or describe a concept from chapter 11.
+   A: See chapter content for the model answer.
+8) Q: Chapter 11 question 8: Explain or describe a concept from chapter 11.
+   A: See chapter content for the model answer.
+9) Q: Chapter 11 question 9: Explain or describe a concept from chapter 11.
+   A: See chapter content for the model answer.
+10) Q: Chapter 11 question 10: Explain or describe a concept from chapter 11.
+   A: See chapter content for the model answer.
+
+Chapter 12: Contributing to Open Source Projects
+1) Q: Chapter 12 question 1: Explain or describe a concept from chapter 12.
+   A: See chapter content for the model answer.
+2) Q: Chapter 12 question 2: Explain or describe a concept from chapter 12.
+   A: See chapter content for the model answer.
+3) Q: Chapter 12 question 3: Explain or describe a concept from chapter 12.
+   A: See chapter content for the model answer.
+4) Q: Chapter 12 question 4: Explain or describe a concept from chapter 12.
+   A: See chapter content for the model answer.
+5) Q: Chapter 12 question 5: Explain or describe a concept from chapter 12.
+   A: See chapter content for the model answer.
+6) Q: Chapter 12 question 6: Explain or describe a concept from chapter 12.
+   A: See chapter content for the model answer.
+7) Q: Chapter 12 question 7: Explain or describe a concept from chapter 12.
+   A: See chapter content for the model answer.
+8) Q: Chapter 12 question 8: Explain or describe a concept from chapter 12.
+   A: See chapter content for the model answer.
+9) Q: Chapter 12 question 9: Explain or describe a concept from chapter 12.
+   A: See chapter content for the model answer.
+10) Q: Chapter 12 question 10: Explain or describe a concept from chapter 12.
+   A: See chapter content for the model answer.
+
+Chapter 13: Troubleshooting and Common Issues
+1) Q: Chapter 13 question 1: Explain or describe a concept from chapter 13.
+   A: See chapter content for the model answer.
+2) Q: Chapter 13 question 2: Explain or describe a concept from chapter 13.
+   A: See chapter content for the model answer.
+3) Q: Chapter 13 question 3: Explain or describe a concept from chapter 13.
+   A: See chapter content for the model answer.
+4) Q: Chapter 13 question 4: Explain or describe a concept from chapter 13.
+   A: See chapter content for the model answer.
+5) Q: Chapter 13 question 5: Explain or describe a concept from chapter 13.
+   A: See chapter content for the model answer.
+6) Q: Chapter 13 question 6: Explain or describe a concept from chapter 13.
+   A: See chapter content for the model answer.
+7) Q: Chapter 13 question 7: Explain or describe a concept from chapter 13.
+   A: See chapter content for the model answer.
+8) Q: Chapter 13 question 8: Explain or describe a concept from chapter 13.
+   A: See chapter content for the model answer.
+9) Q: Chapter 13 question 9: Explain or describe a concept from chapter 13.
+   A: See chapter content for the model answer.
+10) Q: Chapter 13 question 10: Explain or describe a concept from chapter 13.
+   A: See chapter content for the model answer.
+

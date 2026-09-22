@@ -13,7 +13,8 @@ from docx.shared import Inches, Mm, Pt, RGBColor
 from github_im.model import Activity, Module, Question
 from github_im.ooxml import (
     add_bookmark, add_page_number, add_toc, enable_field_updates,
-    repeat_table_header, set_cell_margins, set_image_description,
+    prevent_row_split, repeat_table_header, restart_numbered_paragraphs,
+    set_cell_margins, set_image_description,
     set_table_borders, shade_cell,
 )
 from github_im.visuals import VISUALS
@@ -57,6 +58,7 @@ def _configure_styles(document: Document):
     command.paragraph_format.right_indent = Inches(0.25)
     command.paragraph_format.space_before = Pt(3)
     command.paragraph_format.space_after = Pt(3)
+    command.paragraph_format.keep_together = True
     shading = OxmlElement("w:shd")
     shading.set(qn("w:fill"), PALE_GRAY)
     command.element.get_or_add_pPr().append(shading)
@@ -92,8 +94,10 @@ def _heading(document, text: str, level: int):
 
 
 def _list(document, items, style="List Bullet"):
-    for item in items:
-        document.add_paragraph(str(item), style=style)
+    paragraphs = [document.add_paragraph(str(item), style=style) for item in items]
+    if style == "List Number":
+        restart_numbered_paragraphs(document, paragraphs, style)
+    return paragraphs
 
 
 def _format_table(table, header=True):
@@ -103,6 +107,7 @@ def _format_table(table, header=True):
     if header and table.rows:
         repeat_table_header(table.rows[0])
     for row_index, row in enumerate(table.rows):
+        prevent_row_split(row)
         for cell in row.cells:
             cell.vertical_alignment = WD_CELL_VERTICAL_ALIGNMENT.CENTER
             set_cell_margins(cell)
@@ -117,11 +122,13 @@ def _format_table(table, header=True):
 
 
 def _questions(document, questions: list[Question]):
+    paragraphs = []
     for question in questions:
-        document.add_paragraph(question.prompt, style="List Number")
+        paragraphs.append(document.add_paragraph(question.prompt, style="List Number"))
         for choice in question.choices:
             paragraph = document.add_paragraph(choice, style="List Bullet 2")
             paragraph.paragraph_format.left_indent = Inches(0.65)
+    restart_numbered_paragraphs(document, paragraphs)
 
 
 def _activity(document, activity: Activity, heading_level=3):
@@ -158,7 +165,6 @@ def _front_matter(document: Document, module: Module):
         document.add_paragraph(paragraph)
     _heading(document, "Table of Contents", 1)
     add_toc(document.add_paragraph())
-    document.add_paragraph("Open this file in Microsoft Word and update fields to display current page numbers.")
     _heading(document, "List of Figures", 1)
     for unit in module.units:
         document.add_paragraph(f"Figure {unit.number}. {VISUALS[unit.figure_key].caption}")
@@ -181,8 +187,8 @@ def _front_matter(document: Document, module: Module):
 
 
 def _unit(document: Document, unit, asset_dir: Path):
-    document.add_page_break()
     heading = _heading(document, f"Unit {unit.number}: {unit.title}", 1)
+    heading.paragraph_format.page_break_before = True
     add_bookmark(heading, f"unit_{unit.number}", unit.number)
     paragraph = document.add_paragraph()
     paragraph.add_run("Time allotment: ").bold = True
@@ -235,8 +241,8 @@ def _unit(document: Document, unit, asset_dir: Path):
 
 
 def _back_matter(document: Document, module: Module):
-    document.add_page_break()
-    _heading(document, "Capstone Project", 1)
+    heading = _heading(document, "Capstone Project", 1)
+    heading.paragraph_format.page_break_before = True
     _activity(document, module.capstone, 2)
     _heading(document, "Assessment Rubrics", 1)
     names = {"unit_performance": "Unit Performance Task Rubric", "pull_request": "Pull Request Rubric", "capstone": "Capstone Rubric"}
@@ -248,8 +254,8 @@ def _back_matter(document: Document, module: Module):
             cells = table.add_row().cells
             cells[0].text, cells[1].text = criterion, descriptor
         _format_table(table)
-    document.add_page_break()
-    _heading(document, "Answer Key", 1)
+    heading = _heading(document, "Answer Key", 1)
+    heading.paragraph_format.page_break_before = True
     document.add_paragraph("Instructor copy. Accept equivalent wording when it demonstrates the same accurate concept.")
     for unit in module.units:
         _heading(document, f"Unit {unit.number}: {unit.title}", 2)
@@ -284,8 +290,8 @@ def _back_matter(document: Document, module: Module):
         references.update(unit.references)
     for reference in sorted(references):
         document.add_paragraph(reference)
-    document.add_page_break()
-    _heading(document, "About the Author", 1)
+    heading = _heading(document, "About the Author", 1)
+    heading.paragraph_format.page_break_before = True
     document.add_paragraph("Author information is to be supplied by the author before publication. No name, degree, academic rank, institutional affiliation, or biography has been inferred for this edition.")
 
 

@@ -39,6 +39,7 @@ class DocxBuilderTests(unittest.TestCase):
         self.assertEqual(normal.font.name, "Arial")
         self.assertEqual(normal.font.size, Pt(11))
         self.assertEqual(normal.paragraph_format.line_spacing, 1)
+        self.assertTrue(self.document.styles["Command"].paragraph_format.keep_together)
 
     def test_contains_all_required_sections(self):
         required = [
@@ -52,6 +53,18 @@ class DocxBuilderTests(unittest.TestCase):
             with self.subTest(heading=heading):
                 self.assertIn(heading, self.text)
 
+    def test_major_content_headings_start_on_new_pages_without_break_paragraphs(self):
+        targets = {f"Unit {number}:" for number in range(1, 14)} | {
+            "Capstone Project", "Answer Key", "About the Author"
+        }
+        matches = [
+            paragraph for paragraph in self.document.paragraphs
+            if paragraph.style.name == "Heading 1"
+            and any(paragraph.text.startswith(target) for target in targets)
+        ]
+        self.assertGreaterEqual(len(matches), 16)
+        self.assertTrue(all(paragraph.paragraph_format.page_break_before for paragraph in matches))
+
     def test_embeds_thirteen_figures_with_captions_and_alt_text(self):
         captions = [
             p.text for p in self.document.paragraphs
@@ -64,6 +77,16 @@ class DocxBuilderTests(unittest.TestCase):
             xml = package.read("word/document.xml").decode("utf-8")
         self.assertEqual(xml.count("descr="), 13)
         self.assertNotIn('descr=""', xml)
+
+    def test_tables_prevent_rows_from_splitting_across_pages(self):
+        with zipfile.ZipFile(self.path) as package:
+            xml = package.read("word/document.xml").decode("utf-8")
+        self.assertGreaterEqual(xml.count("w:cantSplit"), 50)
+
+    def test_each_instructional_numbered_list_restarts_at_one(self):
+        with zipfile.ZipFile(self.path) as package:
+            numbering = package.read("word/numbering.xml").decode("utf-8")
+        self.assertGreaterEqual(numbering.count("w:startOverride"), 60)
 
 
 if __name__ == "__main__":

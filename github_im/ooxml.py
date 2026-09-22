@@ -51,6 +51,44 @@ def repeat_table_header(row):
     return row
 
 
+def prevent_row_split(row):
+    properties = row._tr.get_or_add_trPr()
+    marker = OxmlElement("w:cantSplit")
+    marker.set(qn("w:val"), "true")
+    properties.append(marker)
+    return row
+
+
+def restart_numbered_paragraphs(document, paragraphs, style_name="List Number"):
+    if not paragraphs:
+        return paragraphs
+    style = document.styles[style_name]
+    base_num_id = int(style.element.pPr.numPr.numId.val)
+    numbering = document.part.numbering_part.element
+    base_num = numbering.xpath(f"./w:num[@w:numId='{base_num_id}']")[0]
+    abstract_num_id = base_num.find(qn("w:abstractNumId")).get(qn("w:val"))
+    existing = [int(node.get(qn("w:numId"))) for node in numbering.findall(qn("w:num"))]
+    new_num_id = max(existing, default=0) + 1
+    num = OxmlElement("w:num")
+    num.set(qn("w:numId"), str(new_num_id))
+    abstract = OxmlElement("w:abstractNumId")
+    abstract.set(qn("w:val"), abstract_num_id)
+    num.append(abstract)
+    override = OxmlElement("w:lvlOverride")
+    override.set(qn("w:ilvl"), "0")
+    start = OxmlElement("w:startOverride")
+    start.set(qn("w:val"), "1")
+    override.append(start)
+    num.append(override)
+    numbering.append(num)
+    for paragraph in paragraphs:
+        properties = paragraph._p.get_or_add_pPr()
+        num_properties = properties.get_or_add_numPr()
+        num_properties.get_or_add_ilvl().set(qn("w:val"), "0")
+        num_properties.get_or_add_numId().set(qn("w:val"), str(new_num_id))
+    return paragraphs
+
+
 def shade_cell(cell, fill: str):
     properties = cell._tc.get_or_add_tcPr()
     shading = properties.find(qn("w:shd"))

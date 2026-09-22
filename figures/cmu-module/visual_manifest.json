@@ -1,0 +1,106 @@
+[
+  {
+    "key": "unit-01-version-control-flow",
+    "unit": 1,
+    "filename": "unit-01-version-control-flow.png",
+    "caption": "From a working file to shared repository history",
+    "alt_text": "Four connected stages show a changed file moving through the working tree, staging area, local repository, and remote repository.",
+    "prompt": "Use case: scientific-educational\nAsset type: printed university instructional module figure\nStyle/medium: clean flat educational illustration with crisp vector-like forms\nColor palette: deep navy blue, medium blue, pale blue, charcoal, and white, with one amber accent only for warnings\nComposition/framing: 16:9 landscape, generous outer margins, clear visual hierarchy and left-to-right or top-to-bottom sequence\nLighting/mood: bright, calm, precise, approachable for beginner computing students\nConstraints: no logos, no watermark, no photorealism, no decorative characters, no tiny interface text, no source-code text, no unsupported commands, no random letters, no pseudo-words; use simple universally understood symbols and leave labeling to the document caption\nPrimary request: Four connected zones showing a student file moving from a working folder to a selection tray to a local history archive to a cloud remote, with distinct states and reverse synchronization arrows."
+  },
+  {
+    "key": "unit-02-setup-authentication",
+    "unit": 2,
+    "filename": "unit-02-setup-authentication.png",
+    "caption": "A secure Git and GitHub setup path",
+    "alt_text": "A workstation setup path covers Git installation, identity configuration, and the choice between HTTPS and SSH authentication.",
+    "prompt": "Use case: scientific-educational\nAsset type: printed university instructional module figure\nStyle/medium: clean flat educational illustration with crisp vector-like forms\nColor palette: deep navy blue, medium blue, pale blue, charcoal, and white, with one amber accent only for warnings\nComposition/framing: 16:9 landscape, generous outer margins, clear visual hierarchy and left-to-right or top-to-bottom sequence\nLighting/mood: bright, calm, precise, approachable for beginner computing students\nConstraints: no logos, no watermark, no photorealism, no decorative characters, no tiny interface text, no source-code text, no unsupported commands, no random letters, no pseudo-words; use simple universally understood symbols and leave labeling to the document caption\nPrimary request: A beginner workstation setup journey showing software installation, identity configuration, and a safe fork between HTTPS and SSH authentication, with a shield representing credential safety."
+  },
+  {
+    "key": "unit-03-repository-lifecycle",
+    "unit": 3,
+    "filename": "unit-03-repository-lifecycle.png",
+    "caption": "Two paths to the first published repository",
+    "alt_text": "Remote-first cloning and local-first initialization converge on the first repository push.",
+    "prompt": "Use case: scientific-educational\nAsset type: printed university instructional module figure\nStyle/medium: clean flat educational illustration with crisp vector-like forms\nColor palette: deep navy blue, medium blue, pale blue, charcoal, and white, with one amber accent only for warnings\nComposition/framing: 16:9 landscape, generous outer margins, clear visual hierarchy and left-to-right or top-to-bottom sequence\nLighting/mood: bright, calm, precise, approachable for beginner computing students\nConstraints: no logos, no watermark, no photorealism, no decorative characters, no tiny interface text, no source-code text, no unsupported commands, no random letters, no pseudo-words; use simple universally understood symbols and leave labeling to the document caption\nPrimary request: Two accurate repository-start paths converging on first publication: create a remote then clone, or initialize a local project then connect a remote; use folder, archive, cloud, and arrow symbols only."
+  },
+  {
+    "key": "unit-04-command-flow",
+    "unit": 4,
+    "filename": "unit-04-command-flow.png",
+    "caption": "The inspect stage commit and synchronize cycle",
+    "alt_text": "A cyclical workflow shows editing, inspecting, staging, committing, and synchronizing a project.",
+    "prompt": "Use case: scientific-educational\nAsset type: printed university instructional module figure\nStyle/medium: clean flat educational illustration with crisp vector-like forms\nColor palette: deep navy blue, medium blue, pale blue, charcoal, and white, with one amber accent only for warnings\nComposition/framing: 16:9 landscape, generous outer margins, clear visual hierarchy and left-to-right or top-to-bottom sequence\nLighting/mood: bright, calm, precise, approachable for beginner computing students\nConstraints: no logos, no watermark, no photorealism, no decorative characters, no tiny interface text, no source-code text, no unsupported commands, no random letters, no pseudo-words; use simple universally understood symbols and leave labeling to the document caption\nPrimary request: A clear recurring edit-inspect-select-record-synchronize cycle showing a changed document, status inspection, staging tray, local history, and remote synchronization."
+  },
+  {
+    "key": "unit-05-branch-merge",
+    "unit": 5,
+    "filename": "unit-05-branch-merge.png",
+    "caption": "Feature branching merging and conflict resolution",
+    "alt_text": "A main branch and feature branch diverge, receive commits, encounter a controlled conflict, and merge into verified history.",
+    "prompt": "Use case: scientific-educational\nAsset type: printed university instructional module figure\nStyle/medium: clean flat educational illustration with crisp vector-like forms\nColor palette: deep navy blue, medium blue, pale blue, charcoal, and white, with one amber accent only for warnings\nComposition/framing: 16:9 landscape, generous outer margins, clear visual hierarchy and left-to-right or top-to-bottom sequence\nLighting/mood: bright, calm, precise, approachable for beginner computing students\nConstraints: no logos, no watermark, no photorealism, no decorative characters, no tiny interface text, no source-code text, no unsupported commands, no random letters, no pseudo-words; use simple universally understood symbols and leave labeling to the document caption\nPrimary request: A main line and feature line diverging from one commit, receiving separate changes, meeting at a controlled conflict junction, then merging into a verified shared line without data loss."
+  },
+  {
+    "key": "unit-06-pull-request-cycle",
+    "unit": 6,
+    "filename": "unit-06-pull-request-cycle.png",
+    "caption": "The collaborative pull request cycle",
+    "alt_text": "A circular workflow connects an issue, feature work, a pull request, peer review, revision, checks, and merge.",
+    "prompt": "Use case: scientific-educational\nAsset type: printed university instructional module figure\nStyle/medium: clean flat educational illustration with crisp vector-like forms\nColor palette: deep navy blue, medium blue, pale blue, charcoal, and white, with one amber accent only for warnings\nComposition/framing: 16:9 landscape, generous outer margins, clear visual hierarchy and left-to-right or top-to-bottom sequence\nLighting/mood: bright, calm, precise, approachable for beginner computing students\nConstraints: no logos, no watermark, no photorealism, no decorative characters, no tiny interface text, no source-code text, no unsupported commands, no random letters, no pseudo-words; use simple universally understood symbols and leave labeling to the document caption\nPrimary request: A collaborative cycle showing task selection, focused branch work, published proposal, peer review conversation, revision, automated check, approval, and merge."
+  },
+  {
+    "key": "unit-07-issues-projects",
+    "unit": 7,
+    "filename": "unit-07-issues-projects.png",
+    "caption": "Tracking work from backlog to completion",
+    "alt_text": "One work item moves through backlog, active work, review, and done while ownership and milestone links remain visible.",
+    "prompt": "Use case: scientific-educational\nAsset type: printed university instructional module figure\nStyle/medium: clean flat educational illustration with crisp vector-like forms\nColor palette: deep navy blue, medium blue, pale blue, charcoal, and white, with one amber accent only for warnings\nComposition/framing: 16:9 landscape, generous outer margins, clear visual hierarchy and left-to-right or top-to-bottom sequence\nLighting/mood: bright, calm, precise, approachable for beginner computing students\nConstraints: no logos, no watermark, no photorealism, no decorative characters, no tiny interface text, no source-code text, no unsupported commands, no random letters, no pseudo-words; use simple universally understood symbols and leave labeling to the document caption\nPrimary request: One work card moving across a four-column planning board from backlog through active work and review to completion, with small connected symbols for category, owner, milestone, and implementation."
+  },
+  {
+    "key": "unit-08-healthy-repository",
+    "unit": 8,
+    "filename": "unit-08-healthy-repository.png",
+    "caption": "Elements of a healthy repository",
+    "alt_text": "A repository is surrounded by documentation, ignore rules, focused commits, protected review, automated checks, and secret protection.",
+    "prompt": "Use case: scientific-educational\nAsset type: printed university instructional module figure\nStyle/medium: clean flat educational illustration with crisp vector-like forms\nColor palette: deep navy blue, medium blue, pale blue, charcoal, and white, with one amber accent only for warnings\nComposition/framing: 16:9 landscape, generous outer margins, clear visual hierarchy and left-to-right or top-to-bottom sequence\nLighting/mood: bright, calm, precise, approachable for beginner computing students\nConstraints: no logos, no watermark, no photorealism, no decorative characters, no tiny interface text, no source-code text, no unsupported commands, no random letters, no pseudo-words; use simple universally understood symbols and leave labeling to the document caption\nPrimary request: A healthy central project repository surrounded by six connected safeguards: clear documentation, excluded sensitive files, small commit history, protected main line, peer review, and automated validation."
+  },
+  {
+    "key": "unit-09-actions-pipeline",
+    "unit": 9,
+    "filename": "unit-09-actions-pipeline.png",
+    "caption": "A continuous integration validation pipeline",
+    "alt_text": "A repository event starts a workflow that runs checkout and validation steps and ends in a clear pass or fail result.",
+    "prompt": "Use case: scientific-educational\nAsset type: printed university instructional module figure\nStyle/medium: clean flat educational illustration with crisp vector-like forms\nColor palette: deep navy blue, medium blue, pale blue, charcoal, and white, with one amber accent only for warnings\nComposition/framing: 16:9 landscape, generous outer margins, clear visual hierarchy and left-to-right or top-to-bottom sequence\nLighting/mood: bright, calm, precise, approachable for beginner computing students\nConstraints: no logos, no watermark, no photorealism, no decorative characters, no tiny interface text, no source-code text, no unsupported commands, no random letters, no pseudo-words; use simple universally understood symbols and leave labeling to the document caption\nPrimary request: A left-to-right continuous-integration pipeline showing repository event, workflow document, hosted runner, source retrieval, validation steps, and a final pass-or-fail gate."
+  },
+  {
+    "key": "unit-10-pages-publishing",
+    "unit": 10,
+    "filename": "unit-10-pages-publishing.png",
+    "caption": "Publishing a static site with GitHub Pages",
+    "alt_text": "Repository web files pass through a publishing source and deployment process to become a public browser site.",
+    "prompt": "Use case: scientific-educational\nAsset type: printed university instructional module figure\nStyle/medium: clean flat educational illustration with crisp vector-like forms\nColor palette: deep navy blue, medium blue, pale blue, charcoal, and white, with one amber accent only for warnings\nComposition/framing: 16:9 landscape, generous outer margins, clear visual hierarchy and left-to-right or top-to-bottom sequence\nLighting/mood: bright, calm, precise, approachable for beginner computing students\nConstraints: no logos, no watermark, no photorealism, no decorative characters, no tiny interface text, no source-code text, no unsupported commands, no random letters, no pseudo-words; use simple universally understood symbols and leave labeling to the document caption\nPrimary request: A static-site publishing path showing repository web files, selected source branch or folder, deployment process, and a polished public site in a browser frame."
+  },
+  {
+    "key": "unit-11-security-layers",
+    "unit": 11,
+    "filename": "unit-11-security-layers.png",
+    "caption": "Layered protection for an account and repository",
+    "alt_text": "Concentric protection layers represent account security, least privilege, secret safety, dependency review, code scanning, and alerts.",
+    "prompt": "Use case: scientific-educational\nAsset type: printed university instructional module figure\nStyle/medium: clean flat educational illustration with crisp vector-like forms\nColor palette: deep navy blue, medium blue, pale blue, charcoal, and white, with one amber accent only for warnings\nComposition/framing: 16:9 landscape, generous outer margins, clear visual hierarchy and left-to-right or top-to-bottom sequence\nLighting/mood: bright, calm, precise, approachable for beginner computing students\nConstraints: no logos, no watermark, no photorealism, no decorative characters, no tiny interface text, no source-code text, no unsupported commands, no random letters, no pseudo-words; use simple universally understood symbols and leave labeling to the document caption\nPrimary request: Concentric repository security layers showing protected account, least-privilege access, secret shield, dependency review, code scanning, and monitored alert signals."
+  },
+  {
+    "key": "unit-12-open-source-contribution",
+    "unit": 12,
+    "filename": "unit-12-open-source-contribution.png",
+    "caption": "An open source contribution journey",
+    "alt_text": "A contributor moves from project discovery and community guidance through an issue, fork, focused change, pull request, review, and acceptance.",
+    "prompt": "Use case: scientific-educational\nAsset type: printed university instructional module figure\nStyle/medium: clean flat educational illustration with crisp vector-like forms\nColor palette: deep navy blue, medium blue, pale blue, charcoal, and white, with one amber accent only for warnings\nComposition/framing: 16:9 landscape, generous outer margins, clear visual hierarchy and left-to-right or top-to-bottom sequence\nLighting/mood: bright, calm, precise, approachable for beginner computing students\nConstraints: no logos, no watermark, no photorealism, no decorative characters, no tiny interface text, no source-code text, no unsupported commands, no random letters, no pseudo-words; use simple universally understood symbols and leave labeling to the document caption\nPrimary request: An open-source contribution journey showing project discovery, reading community guidance, selecting a small issue, creating an independent copy and branch, focused improvement, proposal, respectful review, and accepted contribution."
+  },
+  {
+    "key": "unit-13-troubleshooting-path",
+    "unit": 13,
+    "filename": "unit-13-troubleshooting-path.png",
+    "caption": "A safe first troubleshooting decision path",
+    "alt_text": "A decision path starts with evidence collection and branches toward authentication, synchronization, conflict, detached-head, and recovery outcomes.",
+    "prompt": "Use case: scientific-educational\nAsset type: printed university instructional module figure\nStyle/medium: clean flat educational illustration with crisp vector-like forms\nColor palette: deep navy blue, medium blue, pale blue, charcoal, and white, with one amber accent only for warnings\nComposition/framing: 16:9 landscape, generous outer margins, clear visual hierarchy and left-to-right or top-to-bottom sequence\nLighting/mood: bright, calm, precise, approachable for beginner computing students\nConstraints: no logos, no watermark, no photorealism, no decorative characters, no tiny interface text, no source-code text, no unsupported commands, no random letters, no pseudo-words; use simple universally understood symbols and leave labeling to the document caption\nPrimary request: A beginner troubleshooting decision tree beginning with observation and evidence, then branching to credential access, synchronization, conflict, detached work, and recovery, always favoring safe reversible paths before an amber expert-only warning path."
+  }
+]

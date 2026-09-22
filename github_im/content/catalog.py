@@ -18,7 +18,7 @@ def build_module() -> Module:
         key=lambda unit: unit.number,
     )
     module = Module(
-        title="GitHub Fundamentals for Beginner BSIT Students",
+        title="GitHub Fundamentals for Beginners",
         audience="BSIT students with no prior Git experience",
         preface=front["preface"],
         glossary=front["glossary"],

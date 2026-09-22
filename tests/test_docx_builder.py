@@ -4,6 +4,7 @@ import zipfile
 from pathlib import Path
 
 from docx import Document
+from docx.oxml.ns import qn
 from docx.shared import Inches, Mm, Pt
 
 from github_im.content.catalog import build_module
@@ -53,6 +54,37 @@ class DocxBuilderTests(unittest.TestCase):
             with self.subTest(heading=heading):
                 self.assertIn(heading, self.text)
 
+    def test_cover_uses_requested_title_and_author(self):
+        title_paragraph = next(
+            paragraph for paragraph in self.document.paragraphs
+            if paragraph.style.name == "Title"
+        )
+        self.assertEqual(title_paragraph.text, "GitHub Fundamentals for Beginners")
+        self.assertIn("by RINANTE M. BUNTOD", self.text)
+
+    def test_cover_title_is_black_and_has_no_decorative_border(self):
+        title_paragraph = next(
+            paragraph for paragraph in self.document.paragraphs
+            if paragraph.style.name == "Title"
+        )
+        self.assertEqual(title_paragraph.runs[0].font.color.rgb, None)
+        style_properties = self.document.styles["Title"].element.pPr
+        self.assertIsNone(style_properties.find(qn("w:pBdr")))
+
+    def test_cover_hides_running_furniture_and_includes_accessible_artwork(self):
+        section = self.document.sections[0]
+        self.assertTrue(section.different_first_page_header_footer)
+        self.assertEqual(section.first_page_header.paragraphs[0].text, "")
+        self.assertEqual(section.first_page_footer.paragraphs[0].text, "")
+        with zipfile.ZipFile(self.path) as package:
+            xml = package.read("word/document.xml").decode("utf-8")
+        self.assertIn('descr="Abstract Git learning journey', xml)
+
+    def test_author_identity_is_consistent_in_metadata_and_back_matter(self):
+        self.assertEqual(self.document.core_properties.title, "GitHub Fundamentals for Beginners")
+        self.assertEqual(self.document.core_properties.author, "Rinante M. Buntod")
+        self.assertIn("Rinante M. Buntod is the author of this instructional module.", self.text)
+
     def test_major_content_headings_start_on_new_pages_without_break_paragraphs(self):
         targets = {f"Unit {number}:" for number in range(1, 14)} | {
             "Capstone Project", "Answer Key", "About the Author"
@@ -75,7 +107,7 @@ class DocxBuilderTests(unittest.TestCase):
             self.assertTrue(any(text.startswith(f"Figure {number}.") for text in captions))
         with zipfile.ZipFile(self.path) as package:
             xml = package.read("word/document.xml").decode("utf-8")
-        self.assertEqual(xml.count("descr="), 13)
+        self.assertEqual(xml.count("descr="), 14)
         self.assertNotIn('descr=""', xml)
 
     def test_tables_prevent_rows_from_splitting_across_pages(self):

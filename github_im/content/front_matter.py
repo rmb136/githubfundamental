@@ -3,7 +3,7 @@ from __future__ import annotations
 
 def build_front_matter() -> dict[str, object]:
     preface = [
-        "GitHub Fundamentals for Beginner BSIT Students is a semester learning module for students who are new to version control, command-line Git, and collaborative development on GitHub. It begins with a concrete model of how files move from a working folder into a recorded history, then develops the skills needed to collaborate, automate checks, publish a static site, and recover from common mistakes.",
+        "GitHub Fundamentals for Beginners is a semester learning module for BSIT students who are new to version control, command-line Git, and collaborative development on GitHub. It begins with a concrete model of how files move from a working folder into a recorded history, then develops the skills needed to collaborate, automate checks, publish a static site, and recover from common mistakes.",
         "The module uses one continuing student-portfolio project so that every activity contributes to a visible body of work. Students should complete the diagnostic questions before reading each unit, follow the guided activity in a practice repository, and submit only the evidence named in the performance task. Private keys, access tokens, passwords, and other secrets must never be submitted.",
     ]
     glossary = {
@@ -85,4 +85,3 @@ def build_front_matter() -> dict[str, object]:
         for index, title in enumerate(titles, 1)
     ]
     return {"preface": preface, "glossary": glossary, "semester_roadmap": roadmap}
-

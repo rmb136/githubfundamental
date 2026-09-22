@@ -16,6 +16,7 @@ REQUIRED_SECTIONS = (
     "Semester Roadmap", "Capstone Project", "Assessment Rubrics",
     "Answer Key", "Git Command Cheat Sheet", "References", "About the Author",
 )
+EXPECTED_FIGURES = 14
 FORBIDDEN_PATTERNS = (
     re.compile(r"\bTODO\b", re.IGNORECASE),
     re.compile(r"\bTBD\b", re.IGNORECASE),
@@ -71,8 +72,10 @@ def audit_docx(path: Path) -> list[str]:
             errors.append(f"DOCX is missing Figure {number} caption.")
     if _forbidden(text):
         errors.append("DOCX contains a draft marker or forbidden secret material.")
-    if len(document.inline_shapes) != 13:
-        errors.append(f"DOCX contains {len(document.inline_shapes)} figures; expected 13.")
+    if len(document.inline_shapes) != EXPECTED_FIGURES:
+        errors.append(
+            f"DOCX contains {len(document.inline_shapes)} figures; expected {EXPECTED_FIGURES}."
+        )
     try:
         with zipfile.ZipFile(path) as package:
             xml = package.read("word/document.xml").decode("utf-8")
@@ -80,7 +83,10 @@ def audit_docx(path: Path) -> list[str]:
         errors.append(f"DOCX package cannot be inspected: {exc}")
     else:
         descriptions = re.findall(r'\bdescr="([^"]*)"', xml)
-        if len(descriptions) != 13 or any(not value.strip() for value in descriptions):
+        if (
+            len(descriptions) != EXPECTED_FIGURES
+            or any(not value.strip() for value in descriptions)
+        ):
             errors.append("DOCX figure descriptions are missing or incomplete.")
     module = build_module()
     expected_ids = {

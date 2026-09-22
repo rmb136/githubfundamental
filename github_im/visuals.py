@@ -17,6 +17,26 @@ class VisualSpec:
     prompt: str
 
 
+COVER_PROMPT = """Use case: stylized-concept
+Asset type: premium portrait book-cover illustration for a university instructional module
+Primary request: Create a sophisticated, modern visual metaphor for learning Git and GitHub fundamentals, showing a luminous branching pathway of connected commit nodes that begins as a single line, branches into several clean paths, and confidently converges toward a bright horizon. Include subtle abstract cues of code, folders, collaboration, and version history as elegant geometric forms, without resembling a software screenshot.
+Scene/backdrop: deep navy-to-midnight-blue atmospheric field with layered translucent contours and gentle depth; a concentrated cyan and electric-blue glow through the central branching network; subtle warm gold highlights for academic prestige.
+Style/medium: polished editorial technology illustration, refined 3D vector-like geometry with soft volumetric lighting, professional university textbook quality, elegant and uncluttered.
+Composition/framing: portrait A4-friendly composition; central visual occupies the middle 60 percent; generous calm negative space near the top and bottom for separately typeset title and author; balanced, print-safe edges.
+Lighting/mood: confident, aspirational, intellectually rigorous, welcoming to beginners.
+Color palette: deep navy, cobalt blue, cyan, restrained gold, crisp white light.
+Constraints: no text, no letters, no numbers, no logos, no brand marks, no mascots, no user interface, no watermark; ensure clear visual hierarchy and high contrast suitable for print."""
+
+COVER_VISUAL = VisualSpec(
+    key="cover-background",
+    unit=0,
+    filename="cover-background.png",
+    caption="A branching path from first commit to confident collaboration",
+    alt_text="Abstract Git learning journey with luminous commit nodes branching through code, file, collaboration, and history symbols toward a bright horizon.",
+    prompt=COVER_PROMPT,
+)
+
+
 BASE_PROMPT = """Use case: scientific-educational
 Asset type: printed university instructional module figure
 Style/medium: clean flat educational illustration with crisp vector-like forms
@@ -59,6 +79,22 @@ VISUALS = {item.key: item for item in _ITEMS}
 
 def validate_visual_assets(base_dir: Path) -> list[str]:
     errors: list[str] = []
+    cover_path = base_dir / COVER_VISUAL.filename
+    if not cover_path.exists():
+        errors.append(f"{COVER_VISUAL.key}: missing asset {cover_path}")
+    else:
+        try:
+            with Image.open(cover_path) as image:
+                image.verify()
+            with Image.open(cover_path) as image:
+                cover_width, cover_height = image.size
+        except Exception as exc:
+            errors.append(f"{COVER_VISUAL.key}: unreadable image: {exc}")
+        else:
+            if cover_width < 1000 or cover_height < 1400:
+                errors.append(f"{COVER_VISUAL.key}: image is too small ({cover_width}x{cover_height})")
+            if cover_height <= cover_width:
+                errors.append(f"{COVER_VISUAL.key}: cover image must use portrait orientation")
     seen_files: set[str] = set()
     for key, spec in VISUALS.items():
         if not spec.caption or not spec.alt_text or not spec.prompt:
@@ -91,7 +127,7 @@ def validate_visual_assets(base_dir: Path) -> list[str]:
 def write_manifest(path: Path) -> Path:
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(
-        json.dumps([asdict(item) for item in _ITEMS], indent=2, ensure_ascii=False),
+        json.dumps([asdict(COVER_VISUAL), *[asdict(item) for item in _ITEMS]], indent=2, ensure_ascii=False),
         encoding="utf-8",
     )
     return path

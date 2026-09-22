@@ -6,10 +6,23 @@ from docx import Document
 from docx.shared import Inches
 from pypdf import PdfWriter
 
+from github_im.content.catalog import build_module
+from github_im.docx_builder import build_docx
 from github_im.release_qa import audit_docx, audit_pdf, audit_pdf_text
 
 
+ROOT = Path(__file__).resolve().parents[1]
+ASSETS = ROOT / "figures" / "cmu-module"
+
+
 class ReleaseQATests(unittest.TestCase):
+    def test_docx_accepts_cover_artwork_plus_thirteen_unit_figures(self):
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / "module.docx"
+            build_docx(build_module(), ASSETS, path)
+            errors = audit_docx(path)
+        self.assertFalse(any("figures; expected" in error for error in errors), errors)
+
     def test_docx_rejects_missing_and_empty_files(self):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)

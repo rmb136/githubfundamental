@@ -1,5 +1,13 @@
 [
   {
+    "key": "cover-background",
+    "unit": 0,
+    "filename": "cover-background.png",
+    "caption": "A branching path from first commit to confident collaboration",
+    "alt_text": "Abstract Git learning journey with luminous commit nodes branching through code, file, collaboration, and history symbols toward a bright horizon.",
+    "prompt": "Use case: stylized-concept\nAsset type: premium portrait book-cover illustration for a university instructional module\nPrimary request: Create a sophisticated, modern visual metaphor for learning Git and GitHub fundamentals, showing a luminous branching pathway of connected commit nodes that begins as a single line, branches into several clean paths, and confidently converges toward a bright horizon. Include subtle abstract cues of code, folders, collaboration, and version history as elegant geometric forms, without resembling a software screenshot.\nScene/backdrop: deep navy-to-midnight-blue atmospheric field with layered translucent contours and gentle depth; a concentrated cyan and electric-blue glow through the central branching network; subtle warm gold highlights for academic prestige.\nStyle/medium: polished editorial technology illustration, refined 3D vector-like geometry with soft volumetric lighting, professional university textbook quality, elegant and uncluttered.\nComposition/framing: portrait A4-friendly composition; central visual occupies the middle 60 percent; generous calm negative space near the top and bottom for separately typeset title and author; balanced, print-safe edges.\nLighting/mood: confident, aspirational, intellectually rigorous, welcoming to beginners.\nColor palette: deep navy, cobalt blue, cyan, restrained gold, crisp white light.\nConstraints: no text, no letters, no numbers, no logos, no brand marks, no mascots, no user interface, no watermark; ensure clear visual hierarchy and high contrast suitable for print."
+  },
+  {
     "key": "unit-01-version-control-flow",
     "unit": 1,
     "filename": "unit-01-version-control-flow.png",

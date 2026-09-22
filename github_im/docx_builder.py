@@ -17,7 +17,7 @@ from github_im.ooxml import (
     set_cell_margins, set_image_description,
     set_table_borders, shade_cell,
 )
-from github_im.visuals import VISUALS
+from github_im.visuals import COVER_VISUAL, VISUALS
 
 
 NAVY, PALE_BLUE, PALE_GRAY = "17365D", "EAF2F8", "F2F2F2"
@@ -52,6 +52,9 @@ def _configure_styles(document: Document):
         style.paragraph_format.space_after = Pt(after)
         style.paragraph_format.keep_with_next = True
         style.paragraph_format.keep_together = True
+    title_border = styles["Title"].element.get_or_add_pPr().find(qn("w:pBdr"))
+    if title_border is not None:
+        styles["Title"].element.get_or_add_pPr().remove(title_border)
     command = styles["Command"] if "Command" in styles else styles.add_style("Command", WD_STYLE_TYPE.PARAGRAPH)
     _font(command, "Consolas", 9.5)
     command.paragraph_format.left_indent = Inches(0.25)
@@ -143,22 +146,43 @@ def _activity(document, activity: Activity, heading_level=3):
         paragraph.add_run(activity.safety_note)
 
 
-def _front_matter(document: Document, module: Module):
+def _front_matter(document: Document, module: Module, asset_dir: Path):
+    overline = document.add_paragraph()
+    overline.alignment = WD_ALIGN_PARAGRAPH.CENTER
+    overline.paragraph_format.space_after = Pt(8)
+    run = overline.add_run("CMU INSTRUCTIONAL MODULE")
+    run.bold = True
+    run.font.name = "Arial"
+    run.font.size = Pt(9)
+    run.font.color.rgb = RGBColor(31, 111, 161)
     title = document.add_paragraph(style="Title")
     title.alignment = WD_ALIGN_PARAGRAPH.CENTER
-    title.add_run(module.title)
+    title.paragraph_format.space_after = Pt(6)
+    run = title.add_run(module.title)
+    run.font.size = Pt(27)
     subtitle = document.add_paragraph(style="Subtitle")
     subtitle.alignment = WD_ALIGN_PARAGRAPH.CENTER
     subtitle.add_run("A CMU Format Instructional Module")
-    edition = document.add_paragraph()
-    edition.alignment = WD_ALIGN_PARAGRAPH.CENTER
-    edition.add_run("Semester Edition • For ")
-    edition.add_run(module.audience).bold = True
-    spacer = document.add_paragraph()
-    spacer.paragraph_format.space_after = Pt(72)
-    notice = document.add_paragraph()
-    notice.alignment = WD_ALIGN_PARAGRAPH.CENTER
-    notice.add_run("Prepared for classroom use\nAuthor information to be supplied before publication")
+    artwork = document.add_paragraph()
+    artwork.alignment = WD_ALIGN_PARAGRAPH.CENTER
+    artwork.paragraph_format.space_before = Pt(8)
+    artwork.paragraph_format.space_after = Pt(10)
+    shape = artwork.add_run().add_picture(
+        str(asset_dir / COVER_VISUAL.filename), height=Inches(5.05)
+    )
+    set_image_description(shape, COVER_VISUAL.alt_text)
+    author = document.add_paragraph()
+    author.alignment = WD_ALIGN_PARAGRAPH.CENTER
+    author.paragraph_format.space_before = Pt(3)
+    author.add_run("by ").italic = True
+    author_run = author.add_run("RINANTE M. BUNTOD")
+    author_run.bold = True
+    author_run.font.size = Pt(13)
+    audience = document.add_paragraph()
+    audience.alignment = WD_ALIGN_PARAGRAPH.CENTER
+    audience.paragraph_format.space_before = Pt(8)
+    audience.add_run("Semester Edition for ")
+    audience.add_run(module.audience).bold = True
     document.add_page_break()
     _heading(document, "Preface", 1)
     for paragraph in module.preface:
@@ -292,18 +316,23 @@ def _back_matter(document: Document, module: Module):
         document.add_paragraph(reference)
     heading = _heading(document, "About the Author", 1)
     heading.paragraph_format.page_break_before = True
-    document.add_paragraph("Author information is to be supplied by the author before publication. No name, degree, academic rank, institutional affiliation, or biography has been inferred for this edition.")
+    document.add_paragraph("Rinante M. Buntod is the author of this instructional module. Additional professional and academic biographical information may be added before publication.")
 
 
 def build_docx(module: Module, asset_dir: Path, output_path: Path) -> Path:
     asset_dir, output_path = Path(asset_dir), Path(output_path)
     document = Document()
+    document.core_properties.title = module.title
+    document.core_properties.author = "Rinante M. Buntod"
     for section in document.sections:
         _configure_section(section)
         _header_footer(section, module.title)
+        section.different_first_page_header_footer = True
+        section.first_page_header.paragraphs[0].text = ""
+        section.first_page_footer.paragraphs[0].text = ""
     _configure_styles(document)
     enable_field_updates(document)
-    _front_matter(document, module)
+    _front_matter(document, module, asset_dir)
     for unit in module.units:
         _unit(document, unit, asset_dir)
     _back_matter(document, module)
